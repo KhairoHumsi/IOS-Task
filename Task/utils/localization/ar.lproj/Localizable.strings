@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  Task
+
+  Created by mohammad khair pk on 18/03/2021.
+  
+*/
+"lang" = "English";
+"home" = "الرئيسية";
+"last_jobs" = "أحدث الوظائف";
+"servies" = "الخدمات";
+"more" = "المزيد";
+"show_all" = "عرض الكل";
+"last_servies"= "آحدث الخدمات";
