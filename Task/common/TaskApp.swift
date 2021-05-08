@@ -10,11 +10,11 @@ import SwiftUI
 @main
 struct TaskApp: App {
     
-    @ObservedObject var sdfsdfs = LanguageSettings()
-    
+    @AppStorage("language") var lang = Locale.current.languageCode ?? "en"
+
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(sdfsdfs).environment(\.locale, Locale(identifier: sdfsdfs.lang)).environment(\.layoutDirection, sdfsdfs.lang == "en" ? .leftToRight : .rightToLeft)
+            ContentView().environment(\.locale, Locale(identifier: lang)).environment(\.layoutDirection, lang == "en" ? .leftToRight : .rightToLeft)
         }
     }
 }

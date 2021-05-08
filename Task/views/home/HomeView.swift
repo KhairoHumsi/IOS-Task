@@ -9,12 +9,12 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @EnvironmentObject var settings: LanguageSettings
+    let settings = LanguageSettings.shaired
     
     @ObservedObject var viewModel = HomeViewModel()
     
     @State var search : String = ""
-    @State var isEnglish: Bool = true
+    @State var isEnglish: Bool = LanguageSettings.shaired.isEnglish()
 
     var body: some View {
         ScrollView {
@@ -198,8 +198,8 @@ struct HomeView: View {
     }
     
     func changeLanguage() {
-        settings.lang = settings.lang == "ar" ? "en" : "ar"
-        isEnglish = settings.lang == "en" ? true : false
+        settings.chengeLanguage()
+        isEnglish = settings.isEnglish()
         
         viewModel.fetchServies(language: settings.lang)
     }

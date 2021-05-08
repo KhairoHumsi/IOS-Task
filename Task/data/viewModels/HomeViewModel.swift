@@ -12,7 +12,8 @@ import Alamofire
 class HomeViewModel: ObservableObject, Identifiable {
   
     private var cancellableSet: Set<AnyCancellable> = []
-    
+    let settings = LanguageSettings.shaired
+
     @Published var isLoading = false
     @Published var isJobs = false
     @Published var isServies = false
@@ -37,7 +38,7 @@ class HomeViewModel: ObservableObject, Identifiable {
 //            .store(in: &cancellableSet)
         
         fetchJobs()
-        fetchServies(language: "en")
+        fetchServies(language: settings.lang)
     }
     
     func fetchJobs() {

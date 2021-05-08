@@ -7,20 +7,20 @@
 
 import SwiftUI
 
-class LanguageSettings: ObservableObject {
-
-    @Published var lang: String = Locale.current.languageCode ?? "en"
-
-    var bundle: Bundle? {
-        let b = Bundle.main.path(forResource: lang, ofType: "lproj")!
-        return Bundle(path: b)
-    }
+class LanguageSettings {
     
+    static let shaired = LanguageSettings()
+    @AppStorage("language") var lang = Locale.current.languageCode ?? "en"
+
     func isEnglish() -> Bool {
         if lang == "en" {
             return true
         } else {
             return false
         }
+    }
+    
+    func chengeLanguage() {
+        lang = lang == "en" ? "ar" : "en"
     }
 }
